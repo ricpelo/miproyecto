@@ -19,10 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'id' => 'login-form',
         'layout' => 'horizontal',
         'fieldConfig' => [
-            'inputOptions' => ['class' => 'col-sm-4 form-control'],
-            'horizontalCssClasses' => ['error' => 'col-sm-6 col-form-label'],
-            'template' => "{label}\n{input}\n{error}\n{hint}",
-            'checkHorizontalTemplate' => "<div class=\"offset-sm-2\">\n<div class=\"form-check\">\n{input}\n{label}\n{error}\n{hint}\n</div>\n</div>",
+            'horizontalCssClasses' => ['wrapper' => 'col-sm-5'],
         ],
     ]); ?>
 
@@ -30,19 +27,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?= $form->field($model, 'password')->passwordInput() ?>
 
-        <?= $form->field($model, 'rememberMe', [
-            'labelOptions' => ['class' => 'col-sm-12'],
-        ])->checkbox() ?>
+        <?= $form->field($model, 'rememberMe')->checkbox() ?>
 
         <div class="form-group">
-            <div class="col-sm-offset-1 col-sm-11">
+            <div class="offset-sm-2">
                 <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
         </div>
 
     <?php ActiveForm::end(); ?>
 
-    <div class="col-xl-offset-1" style="color:#999;">
+    <div class="offset-sm-2" style="color:#999;">
         You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
         To modify the username/password, please check out the code <code>app\models\User::$users</code>.
     </div>
