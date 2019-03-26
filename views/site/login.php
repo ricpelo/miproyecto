@@ -19,8 +19,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'id' => 'login-form',
         'layout' => 'horizontal',
         'fieldConfig' => [
-            'labelOptions' => ['class' => 'col-sm-1 col-form-label'],
-            'wrapperOptions' => ['class' => 'col-sm-4'],
+            'inputOptions' => ['class' => 'col-sm-4 form-control'],
+            'horizontalCssClasses' => ['error' => 'col-sm-6 col-form-label'],
+            'template' => "{label}\n{input}\n{error}\n{hint}",
+            'checkHorizontalTemplate' => "<div class=\"offset-sm-2\">\n<div class=\"form-check\">\n{input}\n{label}\n{error}\n{hint}\n</div>\n</div>",
         ],
     ]); ?>
 
@@ -30,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?= $form->field($model, 'rememberMe', [
             'labelOptions' => ['class' => 'col-sm-12'],
-            'horizontalCssClasses' => ['offset' => 'offset-sm-1'],
         ])->checkbox() ?>
 
         <div class="form-group">
