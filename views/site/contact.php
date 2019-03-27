@@ -39,9 +39,15 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
 
         <div class="row">
-            <div class="col-xl-5">
+            <div class="col-xl-8">
 
-                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+                <?php $form = ActiveForm::begin([
+                    'id' => 'contact-form',
+                    'layout' => 'horizontal',
+                    'fieldConfig' => [
+                        'horizontalCssClasses' => ['label' => 'col-sm-2'],
+                    ],
+                ]); ?>
 
                     <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
 
@@ -51,11 +57,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
-                    <?= $form->field($model, 'verifyCode', [
-                        'labelOptions' => ['style' => 'display: block']
-                    ])->widget(Captcha::className(), [
-                        'imageOptions' => ['class' => 'col-xl-4', 'style' => 'padding: 0'],
-                        'options' => ['class' => 'form-control col-xl-7', 'style' => 'display: inline'],
+                    <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                        'imageOptions' => ['class' => 'col-sm-3', 'style' => 'padding: 0'],
+                        'options' => ['class' => 'form-control col-sm-7', 'style' => 'display: inline'],
                     ]) ?>
 
                     <div class="form-group">
