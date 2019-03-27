@@ -51,8 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
-                    <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                        'template' => '<div class="row"><div class="col-xl-3">{image}</div><div class="col-xl-6">{input}</div></div>',
+                    <?= $form->field($model, 'verifyCode', [
+                        'labelOptions' => ['style' => 'display: block']
+                    ])->widget(Captcha::className(), [
+                        'imageOptions' => ['class' => 'col-xl-4', 'style' => 'padding: 0'],
+                        'options' => ['class' => 'form-control col-xl-7', 'style' => 'display: inline'],
                     ]) ?>
 
                     <div class="form-group">
